@@ -17,12 +17,6 @@ def factorial(n):
 
 # Count the number of elements in the list l
 def count_list(l):
-    # if l == []:
-    #     return 0
-    # else:
-    #     popped = l.pop()
-    #     return popped + count_list(l)
-    #return l
     if l == []:
         return 0
     else:
@@ -56,28 +50,58 @@ def fibonacci(n):
 
 # Finds the item i in the list l.... RECURSIVELY
 def find(l, i):
-    return None
+    if l == []:
+        return None
+    elif l[0] == i:
+        return i
+    else:
+        rest = l[1:]
+        return find(rest, i)
 
 # Determines if a string is a palindrome
 def palindrome(some_string):
-    return False
+    listed = list(some_string)
+    if len(listed) <= 1:
+        return True
+    elif listed[0] == listed[-1]:
+        listed.pop()
+        (reverse(listed)).pop()
+        return palindrome("".join(listed)) 
+    else:
+        return False
 
-# Given the width and height of a sheet of paper, and the number of times to fold it, return the final dimensions of the sheet as a tuple. Assume that you always fold in half along the longest edge of the sheet.
+# Given the width and height of a sheet of paper,
+ # and the number of times to fold it, return the final dimensions of the sheet as a tuple. 
+ # Assume that you always fold in half along the longest edge of the sheet.
 def fold_paper(width, height, folds):
-    return (0, 0)
+    if folds == 0:
+        return (width, height)
+    if width > height:   
+        return fold_paper(float(width/2) , height, folds - 1)
+    else:
+        return fold_paper(width, float(height/2), folds - 1)
+    
 
 # Count up
 # Print all the numbers from 0 to target
 def count_up(target, n):
-    return
+    if target == n:
+        print target
+    else:
+        print n
+        count_up(target, n+1)
 
 
 
 # Test functions
-l = [2, 3, 4,]
-
+# l = [2, 3, 4,]
+# some_string = "SEES"
 #print factorial(5)
 #print multiply_list(l)
 # print sum_list(l)
 # print count_list(l)
-print fibonacci(10)
+# print fibonacci(10)
+# print find(l, 6)
+# print palindrome(some_string)
+# print fold_paper(20.4, 12.4, 0)
+count_up(7, 5)

@@ -17,11 +17,20 @@ def factorial(n):
 
 # Count the number of elements in the list l
 def count_list(l):
-    return
+    if l == []:
+        return 0
+    else:
+        popped = l.pop()
+        return popped + count_list(l)
+    #return l
 
 # Sum all of the elements in a list
 def sum_list(l):
-    return 0
+    if len(l) == 1:
+        return l[0]
+    else:
+        popped = l.pop()
+        return popped + sum_list(l)
 
 
 # Reverse a list without slicing or loops
@@ -35,7 +44,11 @@ def reverse(l):
 # Fibonacci returns the nth fibonacci number. The nth fibonacci number is
 # defined as fib(n) = fib(n-1) + fib(n-2)
 def fibonacci(n):
-    pass
+    if n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + (n-2)
+        
 
 # Finds the item i in the list l.... RECURSIVELY
 def find(l, i):
@@ -60,4 +73,7 @@ def count_up(target, n):
 l = [2, 3, 4]
 
 #print factorial(5)
-print multiply_list(l)
+#print multiply_list(l)
+# print sum_list(l)
+# print count_list(l)
+print fibonacci(4)
